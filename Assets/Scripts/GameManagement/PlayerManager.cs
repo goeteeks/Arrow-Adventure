@@ -21,6 +21,8 @@ public class PlayerManager : MonoBehaviour {
 	[SerializeField] bool damaged = false;
 	[SerializeField] bool canMove = false;
 
+	//TODO: Get Sprites for Arrow, Tip, Body and change the color using the SwapParts script.
+
 	public Slider healthSlider;
 
 	AttackEnemy a_Tip;
