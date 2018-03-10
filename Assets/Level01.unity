@@ -392,7 +392,7 @@ RectTransform:
   m_GameObject: {fileID: 523292107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99995613, y: 0.99995613, z: 0.99995613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 972404535}
   m_RootOrder: 0
@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 676082873}
   - component: {fileID: 676082875}
   - component: {fileID: 676082874}
+  - component: {fileID: 676082876}
   m_Layer: 5
   m_Name: Body Image
   m_TagString: Untagged
@@ -599,8 +600,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1022189588}
   - {fileID: 1423292672}
+  - {fileID: 1022189588}
   m_Father: {fileID: 972404535}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -642,6 +643,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676082872}
+--- !u!114 &676082876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676082872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc689709e6f7964eb17c321220b3c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upButton: {fileID: 1423292673}
+  downButton: {fileID: 1022189589}
 --- !u!1 &840835905
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +861,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 676082873}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -892,7 +906,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1022189590}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 676082876}
+        m_MethodName: decrementPart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1022189590
@@ -1058,7 +1083,7 @@ RectTransform:
   m_GameObject: {fileID: 1405009350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99995613, y: 0.99995613, z: 0.99995613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 972404535}
   m_RootOrder: 2
@@ -1130,7 +1155,7 @@ RectTransform:
   m_LocalScale: {x: 0.99995655, y: 0.99995655, z: 0.9999562}
   m_Children: []
   m_Father: {fileID: 676082873}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1175,7 +1200,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1423292674}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 676082876}
+        m_MethodName: incrementPart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1423292674
@@ -1741,27 +1777,27 @@ Prefab:
     - target: {fileID: 224689507940266432, guid: c430d0ff7a3c52b488e1bd0ca221d60f,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224689507940266432, guid: c430d0ff7a3c52b488e1bd0ca221d60f,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224059820734758816, guid: c430d0ff7a3c52b488e1bd0ca221d60f,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224059820734758816, guid: c430d0ff7a3c52b488e1bd0ca221d60f,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224059820734758816, guid: c430d0ff7a3c52b488e1bd0ca221d60f,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114239376048161586, guid: c430d0ff7a3c52b488e1bd0ca221d60f,
         type: 2}

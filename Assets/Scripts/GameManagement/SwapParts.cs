@@ -1,44 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SwapParts : MonoBehaviour {
 
-	private List<string> bodies = new List<string>();
-	private List<string> tips = new List<string>();
-	private List<string> tails = new List<string>();
+	private List<string> parts = new List<string>();
 
-	private string[] bodiesArray;
-	private string[] tipsArray;
-	private string[] tailsArray;
+	private string[] partsList;
 
-	private string curBody;
-	private string curTip;
-	private string curTail;
+	private string curPart;
 
 	private PlayerManager pm;
+	private Image imagePart;
+	private int currentIndex = 0;
+
+	[SerializeField] private Button upButton;
+	[SerializeField] private Button downButton;
 
 	// Use this for initialization
 	void Start () {
-		bodies.Add ("normal");
-		bodies.Add ("wood");
-		bodies.Add ("metal");
+		parts.Add ("normal");
+		parts.Add ("wood");
+		parts.Add ("metal");
 
-		tips.Add ("normal");
-		tips.Add ("wood");
-		tips.Add ("metal");
+		partsList = parts.ToArray ();
 
-		tails.Add ("normal");
-		tails.Add ("wood");
-		tails.Add ("metal");
+		curPart = partsList [currentIndex];
 
-		bodiesArray = bodies.ToArray ();
-		tipsArray = tips.ToArray ();
-		tailsArray = tails.ToArray ();
-
-		curBody = bodiesArray [0];
-		curTip = tipsArray [0];
-		curTail = tailsArray [0];
+		imagePart = GetComponent <Image> ();
 
 		pm = GameObject.FindWithTag ("Player").GetComponent <PlayerManager> ();
 	}
@@ -48,13 +38,50 @@ public class SwapParts : MonoBehaviour {
 		
 	}
 
-	void swapPart (string[] partsList, int index){
-		if (index > partsList.Length) {
+	void swapPart (int index){
+		if (index >= partsList.Length) {
 			Debug.LogError ("Given index is out of range!");
 		} else if (index < 0) {
 			Debug.LogError ("Given Index cannot be negative!");
 		} else {
-			
+			curPart = partsList [index];
+			changePart (curPart);
+			currentIndex = index;
 		}
+	}
+
+	void changePart (string part){
+		switch (part) {
+		case "normal":
+			imagePart.color = new Color (1.0f, 1.0f, 1.0f);
+			break;
+		case "wood":
+			imagePart.color = new Color (0.18f, 0.09f, 0.0f);
+			break;
+		case "metal":
+			imagePart.color = new Color (0.75f, 0.75f, 0.75f);
+			break;
+		default:
+			Debug.LogError ("Not a known part type: " + part);
+			break;
+		}
+	}
+
+	public void incrementPart (){
+		currentIndex++;
+		//Handle wrapping
+		if (currentIndex >= partsList.Length) {
+			currentIndex = 0;
+		}
+		swapPart (currentIndex);
+	}
+
+	public void decrementPart (){
+		currentIndex--;
+		//Handle wrapping
+		if (currentIndex < 0) {
+			currentIndex = partsList.Length - 1;
+		}
+		swapPart (currentIndex);
 	}
 }
