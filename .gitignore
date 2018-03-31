@@ -32,6 +32,11 @@ sysinfo.txt
 # TextMeshPro
 Assets/TextMesh\ Pro/*
 
+# JetBrains idea
+.idea/*
+Assets/Plugins/*
+Assets/Plugins.meta
+
 # =========================
 # Operating System Files
 # =========================
