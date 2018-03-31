@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwapParts : MonoBehaviour {
+public class ArrowParts : MonoBehaviour {
 
 	private List<string> bodies = new List<string>();
 	private List<string> tips = new List<string>();
 	private List<string> tails = new List<string>();
 
-	private string[] bodiesArray;
-	private string[] tipsArray;
-	private string[] tailsArray;
+	internal string[] bodiesArray;
+	internal string[] tipsArray;
+	internal string[] tailsArray;
 
 	private string curBody;
 	private string curTip;

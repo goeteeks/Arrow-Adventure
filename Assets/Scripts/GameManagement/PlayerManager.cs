@@ -197,4 +197,9 @@ public class PlayerManager : MonoBehaviour {
 	public bool getDamaged(){
 		return damaged;
 	}
+
+	public void setLaunchDelay(float t)
+	{
+		launchDelay = t;
+	}
 }
