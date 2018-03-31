@@ -29,6 +29,9 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# TextMeshPro
+"Assets/TextMesh Pro/*"
+
 # =========================
 # Operating System Files
 # =========================
