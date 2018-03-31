@@ -30,7 +30,7 @@ sysinfo.txt
 *.unitypackage
 
 # TextMeshPro
-"Assets/TextMesh Pro/*"
+Assets/TextMesh\ Pro/*
 
 # =========================
 # Operating System Files
